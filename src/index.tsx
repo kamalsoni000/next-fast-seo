@@ -1,0 +1,1 @@
+export {SEO as NextFastSeo} from './SEO/index';
