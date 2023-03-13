@@ -1,7 +1,26 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Head from "next/head";
 import settings from "../../settings/seo.json";
+
+interface SEOProps{
+  type: string,
+  title: string,
+  description: string,
+  image: string,
+  keyword?: string
+}
+
+interface socialTagsType extends SEOProps{
+  createdAt?:string,
+  updatedAt?:string,
+}
+
+interface addJsonLdType{
+  title:string,
+  description:string,
+  image:string,
+  createdAt?:string
+}
 
 const socialTags = ({
   type,
@@ -10,7 +29,7 @@ const socialTags = ({
   image,
   createdAt,
   updatedAt,
-}) => {
+}:socialTagsType) => {
   const metaTags = [
     { name: "twitter:card", content: "summary_large_image" },
     {
@@ -55,7 +74,7 @@ const socialTags = ({
 };
 
 // Structured Data and JSON-LD it facilitates the understanding of your pages to search engines.
-const addJsonLd = ({ title, description, image, createdAt }) => {
+const addJsonLd = ({ title, description, image, createdAt }:addJsonLdType) => {
 
   return {
     __html: `{
@@ -88,8 +107,7 @@ const addJsonLd = ({ title, description, image, createdAt }) => {
   };
 };
 
-
-export const SEO = (props) => {
+export const SEO = (props:SEOProps) => {
   const { title, description, image, keyword } = props;
   return (
     <Head>
@@ -124,14 +142,3 @@ SEO.defaultProps = {
     settings.meta.social &&
     settings.meta.social.graphic,
 };
-
-SEO.propTypes = {
-  type: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  keyword: PropTypes.string
-
-};
-
-// export default SEO;
