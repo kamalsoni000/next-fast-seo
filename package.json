@@ -1,6 +1,6 @@
 {
   "name": "nextjs-fast-seo",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Fast SEO plugin for Next.js Application",
   "license": "MIT",
   "source": "src/index.tsx",
