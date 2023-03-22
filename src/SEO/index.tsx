@@ -7,7 +7,6 @@ import { addJsonLd } from "./jsonld/addJsonLd";
 
 export const SEO = (props:SEOProps) => {
   const { title } = props;
-  console.log('myFile',myFile);
   return (
     <Head>
       <title>{title} </title>
